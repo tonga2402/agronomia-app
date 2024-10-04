@@ -1,21 +1,25 @@
 "use server";
 
-export const login = async (formData: FormData) => {
-  const res = await fetch(`${process.env.URL}/api/login`, {
+export const newClient = async (formData: FormData) => {
+  const name = formData.get("name");
+
+  
+  const res = await fetch(`${process.env.URL}/clients`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      formData,
+      name: name,
+      parcels: [],
     }),
   });
-  const newClient = await res.json();
+  const dataClient = await res.json();
+  
+    
+if (!res.ok){
+  return JSON.stringify('nada')
+}
+return dataClient
 
-  if (res.ok) {
-  } else if (res.status === 401) {
-    return { message: "" };
-  }
-
-  return { message: "Intente mas Tarde" };
-};
+}

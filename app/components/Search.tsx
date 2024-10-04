@@ -3,7 +3,6 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useDebounce } from "use-debounce";
-import Modal from "./Modal";
 import NewClient from "./NewClient";
 
 const Search = () => {
