@@ -10,7 +10,7 @@ const ClientTab = ({parcels,name,id}: ListClientType ) => {
 
   return (
     <tr className="py-5 hover:bg-gray-300 cursor-pointer"
-    onClick={()=>{router.push(`clients/${id}`)}}
+    onClick={()=>{router.push(`clients/detail?c=${id}`)}}
     >
       <td className="py-5 border text-center  p-4">{name}</td>
       <td className="py-5 border text-center  p-4">{
