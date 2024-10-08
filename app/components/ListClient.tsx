@@ -23,6 +23,7 @@ const ListClient = async ({ clients }: { clients: ListClientType[] }) => {
               <ClientTab
                 parcels={client.parcels}
                 name={client.name}
+                id={client.id}
                 key={client.id}
               />
             ))}

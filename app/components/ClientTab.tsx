@@ -1,13 +1,17 @@
-import React from "react";
+'use client'
 
-type ClientType = {
-    parcels: [];
-    name: string;
-}
+import { useRouter } from "next/navigation";
+import { ListClientType } from "../types/ListClient.Type";
 
-const ClientTab = ({parcels,name}: ClientType ) => {
+
+const ClientTab = ({parcels,name,id}: ListClientType ) => {
+
+  const router = useRouter()
+
   return (
-    <tr className="py-5 hover:bg-gray-300 cursor-pointer">
+    <tr className="py-5 hover:bg-gray-300 cursor-pointer"
+    onClick={()=>{router.push(`clients/${id}`)}}
+    >
       <td className="py-5 border text-center  p-4">{name}</td>
       <td className="py-5 border text-center  p-4">{
       parcels.length === 0 ? 'no tiene parcelas asignadas':
